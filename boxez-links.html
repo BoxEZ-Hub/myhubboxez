@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BoxEZ | Seu hub de soluções fáceis</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030a1c;--panel:#071a4a;--line:#1f6bff;--cy:#22d3ee;--tx:#eaf2ff;--mut:#9db8e8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#0a1f55 0%,var(--bg) 60%) var(--bg);color:var(--tx);font-family:"Poppins","Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+body::before,body::after{content:"";position:fixed;width:170px;height:170px;border-radius:32px;background:linear-gradient(135deg,#1f6bff,#0a2a9c);opacity:.75;filter:blur(.5px);pointer-events:none;z-index:0}
+body::before{top:-90px;left:-70px;transform:rotate(45deg)}
+body::after{bottom:-100px;right:-70px;transform:rotate(45deg)}
+.wrap{position:relative;z-index:1;max-width:460px;margin:0 auto;padding:36px 20px 110px;text-align:center}
+.logo{width:112px;height:112px;margin:0 auto 10px;filter:drop-shadow(0 0 14px rgba(31,107,255,.8))}
+.word{margin:0;font-size:54px;font-weight:800;font-style:italic;letter-spacing:-2px;line-height:1.05}
+.word em{background:linear-gradient(90deg,#22d3ee,#1f6bff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:6px}
+.tag{margin:6px 0 18px;font-size:17px;letter-spacing:.06em}
+.chips{display:flex;justify-content:center;align-items:center;margin-bottom:22px;font-size:13px;color:#7fb0ff}
+.chips span{display:flex;align-items:center;gap:6px;padding:0 12px}
+.chips span+span{border-left:1px solid rgba(127,176,255,.3)}
+.chips svg{width:18px;height:18px;stroke:#3b82ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#list{display:grid;gap:14px}
+.row{position:relative}
+.btn{display:flex;align-items:center;gap:14px;padding:13px 16px;text-align:left;text-decoration:none;color:inherit;border:1.5px solid var(--line);border-radius:22px;background:linear-gradient(135deg,rgba(16,56,160,.55),rgba(5,16,50,.9));box-shadow:0 0 16px rgba(31,107,255,.3),inset 0 0 22px rgba(31,107,255,.12);transition:transform .15s,box-shadow .15s}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px);box-shadow:0 0 26px rgba(34,211,238,.45),inset 0 0 22px rgba(31,107,255,.2);outline:none}
+.ic{flex:none;width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#1f6bff,#1446d8)}
+.ic.c{background:linear-gradient(135deg,#22d3ee,#0ea5e9)}
+.ic svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tx{display:flex;flex-direction:column;min-width:0;gap:2px}
+.tt{font-size:15px;font-weight:700;letter-spacing:.04em;overflow-wrap:anywhere}
+.ds{font-size:13px;color:var(--mut)}
+.ch{margin-left:auto;font-size:30px;line-height:1;color:#4f9bff}
+.pend{font-size:11px;color:#fbbf24}
+.ctl{display:flex;gap:6px;justify-content:flex-end;margin-top:6px}
+.ctl button,.bar button,.acts button{font:inherit;font-size:13px;color:var(--tx);background:#0b2260;border:1px solid var(--line);border-radius:10px;padding:7px 12px;cursor:pointer}
+.bar button:disabled{opacity:.4;cursor:default}
+.pri{background:linear-gradient(135deg,#1f6bff,#22d3ee)!important;border:0!important;font-weight:600}
+#soc{display:flex;justify-content:center;align-items:flex-start;margin:28px 0 18px}
+.so{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;color:var(--tx);text-decoration:none;font-size:13px}
+.so small{font-size:11px;color:var(--mut)}
+.ring{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;margin-bottom:4px}
+.ring svg{width:26px;height:26px;stroke:var(--cy);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sep{width:1px;align-self:stretch;background:rgba(127,176,255,.25)}
+.foot{margin:0;font-size:13px;color:var(--mut)}
+.foot b{color:var(--tx)}
+.disc{margin:14px auto 0;max-width:340px;font-size:11px;line-height:1.5;color:#6f8ac4}
+.bar{position:fixed;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:8px;z-index:10;padding:0 12px}
+#msg{position:fixed;left:12px;right:12px;bottom:calc(62px + env(safe-area-inset-bottom,0px));text-align:center;font-size:13px;color:#fbbf24;z-index:10}
+#mod{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:16px;background:rgba(2,6,20,.8)}
+#mod[hidden]{display:none}
+.card{width:min(420px,100%);max-height:90vh;overflow:auto;padding:18px;text-align:left;background:var(--panel);border:1.5px solid var(--line);border-radius:18px}
+.card h3{margin:0 0 12px;font-size:17px}
+.card label{display:block;margin-bottom:10px;font-size:12px;color:var(--mut)}
+.card input,.card select{display:block;width:100%;margin-top:4px;padding:10px;font:inherit;font-size:14px;color:var(--tx);background:#030a1c;border:1px solid #2a4fb0;border-radius:10px}
+.acts{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <svg class="logo" viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f6bff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><circle cx="60" cy="60" r="56" fill="#030a1c" stroke="url(#g)" stroke-width="3"/><path d="M60 26 86 41 60 56 34 41Z" fill="#22a7ff"/><path d="M34 46 58 60V92L34 77Z" fill="#fff"/><path d="M62 60 86 46V77L62 92Z" fill="#fff"/><path d="M69 69 79 63M69 76 79 70" stroke="#1f6bff" stroke-width="3" stroke-linecap="round"/></svg>
+  <h1 class="word">Box<em>EZ</em></h1>
+  <p class="tag" id="tag"></p>
+  <div class="chips" id="chips"></div>
+  <nav id="list" aria-label="Links"></nav>
+  <div id="soc"></div>
+  <p class="foot"><b>BoxEZ</b> | Mais praticidade, mais possibilidades.</p>
+  <p class="disc">Sou afiliado do Mercado Livre: posso receber comissão pelas compras feitas pelos links desta página, sem custo extra para você.</p>
+</main>
+<div id="adm"></div>
+<div id="mod" hidden></div>
+<script id="data" type="application/json">{"tagline":"Seu hub de soluções fáceis.","links":[{"title":"Ofertas da semana","desc":"Economize de verdade.","url":"#","icon":"flame","c":true},{"title":"Mais vendidos","desc":"Os queridinhos do Mercado Livre.","url":"#","icon":"star","c":false},{"title":"Casa e utilidades","desc":"Achados que facilitam o dia a dia.","url":"#","icon":"home","c":true}],"social":{"instagram":{"url":"https://instagram.com/boxez","label":"@boxez"},"whatsapp":{"url":"","label":"Fale conosco"},"tiktok":{"url":"","label":"@boxez"}}}</script>
+<script>
+const D=JSON.parse(document.getElementById('data').textContent);
+const I={
+cart:'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.5 12h11l2-8H6"/>',
+flame:'<path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-10z"/>',
+star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+box:'<path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/>',
+chat:'<path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/>',
+bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+tag:'<path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
+link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/>',
+home:'<path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/>',
+instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/>',
+whatsapp:'<path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12z"/><path d="M9 9c0 3 3 6 6 6l1-2-2-1-1 .5c-.8-.4-1.6-1.2-2-2l.5-1-1-2z"/>',
+tiktok:'<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.3 2.4 2 4 4.5 4.2"/>'
+};
+const ICONS=['tag','flame','star','home','cart','box','bolt','chat','link'];
+const $=s=>document.querySelector(s);
+const ico=n=>'<svg viewBox="0 0 24 24" aria-hidden="true">'+(I[n]||I.link)+'</svg>';
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function safeUrl(u){u=(u||'').trim();if(!u||u==='#')return'#';if(/^https?:\/\//i.test(u))return u;if(/^[a-z][a-z0-9+.-]*:/i.test(u))return'#';return'https://'+u}
+let owner=false,edit=false,dirty=false;
+
+function render(){
+  $('#tag').textContent=D.tagline;
+  $('#chips').innerHTML=[['bolt','Tecnologia'],['box','Utilidades'],['star','Inovação']].map(a=>'<span>'+ico(a[0])+a[1]+'</span>').join('');
+  $('#list').innerHTML=D.links.map((l,i)=>{
+    const pend=owner&&safeUrl(l.url)==='#'?'<span class="pend">sem link: toque em ✎ para adicionar</span>':'';
+    const ctl=edit?'<div class="ctl"><button data-a="up" data-i="'+i+'" aria-label="Subir">↑</button><button data-a="dn" data-i="'+i+'" aria-label="Descer">↓</button><button data-a="ed" data-i="'+i+'" aria-label="Editar">✎</button><button data-a="rm" data-i="'+i+'" aria-label="Remover">🗑</button></div>':'';
+    return '<div class="row"><a class="btn" href="'+esc(safeUrl(l.url))+'" target="_blank" rel="noopener sponsored nofollow"><span class="ic'+(l.c?' c':'')+'">'+ico(l.icon)+'</span><span class="tx"><b class="tt">'+esc(l.title)+'</b><span class="ds">'+esc(l.desc)+'</span>'+pend+'</span><span class="ch">›</span></a>'+ctl+'</div>';
+  }).join('');
+  const S=[['instagram','Instagram'],['whatsapp','WhatsApp'],['tiktok','TikTok']].filter(s=>D.social[s[0]]&&D.social[s[0]].url);
+  $('#soc').innerHTML=S.map(s=>'<a class="so" href="'+esc(safeUrl(D.social[s[0]].url))+'" target="_blank" rel="noopener"><span class="ring">'+ico(s[0])+'</span><b>'+s[1]+'</b><small>'+esc(D.social[s[0]].label)+'</small></a>').join('<i class="sep"></i>');
+}
+function bar(){
+  const a=$('#adm');
+  if(!owner){a.innerHTML='';return}
+  a.innerHTML='<div class="bar">'+(edit?'<button id="add">+ Botão</button><button id="prof">Perfil</button><button id="pub" class="pri"'+(dirty?'':' disabled')+'>Publicar</button><button id="done">Sair</button>':'<button id="on">✎ Editar página</button>')+'</div><div id="msg" role="status"></div>';
+}
+function touch(){dirty=true;render();bar()}
+function form(title,fields,vals,ok){
+  const m=$('#mod');
+  m.innerHTML='<div class="card"><h3>'+title+'</h3>'+fields.map(f=>'<label>'+f.l+(f.o?'<select name="'+f.k+'">'+f.o.map(o=>'<option'+(vals[f.k]===o?' selected':'')+'>'+o+'</option>').join('')+'</select>':'<input name="'+f.k+'" value="'+esc(vals[f.k])+'" placeholder="'+esc(f.p||'')+'">')+'</label>').join('')+'<div class="acts"><button id="mc">Cancelar</button><button id="mo" class="pri">Salvar</button></div></div>';
+  m.hidden=false;
+  $('#mc').onclick=()=>{m.hidden=true};
+  $('#mo').onclick=()=>{const v={};m.querySelectorAll('[name]').forEach(e=>{v[e.name]=e.value.trim()});m.hidden=true;ok(v)};
+}
+const LF=[{k:'title',l:'Título do botão',p:'Ex.: Ofertas da semana'},{k:'desc',l:'Descrição curta',p:'Ex.: Economize de verdade.'},{k:'url',l:'Link de afiliado',p:'https://mercadolivre.com/sec/...'},{k:'icon',l:'Ícone',o:ICONS},{k:'cor',l:'Cor do ícone',o:['azul','ciano']}];
+function linkForm(i){
+  const l=i==null?{icon:'tag',c:false}:D.links[i];
+  form(i==null?'Novo botão':'Editar botão',LF,{title:l.title,desc:l.desc,url:l.url,icon:l.icon,cor:l.c?'ciano':'azul'},v=>{
+    const n={title:v.title||'Novo botão',desc:v.desc,url:v.url,icon:v.icon,c:v.cor==='ciano'};
+    if(i==null)D.links.push(n);else D.links[i]=n;
+    touch();
+  });
+}
+function profForm(){
+  const s=D.social;
+  form('Perfil e redes',[{k:'tag',l:'Frase abaixo da logo'},{k:'iu',l:'Instagram (link)'},{k:'il',l:'Instagram (texto)'},{k:'wu',l:'WhatsApp (link, ex.: https://wa.me/5541999999999)'},{k:'wl',l:'WhatsApp (texto)'},{k:'tu',l:'TikTok (link)'},{k:'tl',l:'TikTok (texto)'}],
+    {tag:D.tagline,iu:s.instagram.url,il:s.instagram.label,wu:s.whatsapp.url,wl:s.whatsapp.label,tu:s.tiktok.url,tl:s.tiktok.label},v=>{
+    D.tagline=v.tag;
+    D.social={instagram:{url:v.iu,label:v.il},whatsapp:{url:v.wu,label:v.wl},tiktok:{url:v.tu,label:v.tl}};
+    touch();
+  });
+}
+async function publish(){
+  const msg=$('#msg');
+  try{
+    const a=await window.claude.use('artifact');
+    if(!a){msg.textContent='Publicar não está disponível nesta visualização.';return}
+    const c=document.documentElement.cloneNode(true);
+    ['#list','#soc','#adm','#chips'].forEach(s=>{const e=c.querySelector(s);if(e)e.innerHTML=''});
+    const m=c.querySelector('#mod');m.innerHTML='';m.hidden=true;m.setAttribute('hidden','');
+    c.querySelector('#data').textContent=JSON.stringify(D).replace(/</g,'\\u003c');
+    msg.textContent='Publicando...';
+    await a.publish('<!DOCTYPE html>\n'+c.outerHTML);
+  }catch(e){
+    msg.textContent=e&&e.code==='conflict'?'A página foi alterada em outro lugar. Ela será recarregada.':'Não foi possível publicar'+(e&&e.code?' ('+e.code+')':'')+'. Tente de novo.';
+  }
+}
+document.addEventListener('click',e=>{
+  const t=e.target;
+  if(edit&&t.closest('#list a'))e.preventDefault();
+  const b=t.closest('button');if(!b)return;
+  const i=+b.dataset.i,a=b.dataset.a,L=D.links;
+  if(b.id==='on'){edit=true;render();bar()}
+  else if(b.id==='done'){if(!dirty||confirm('Sair sem publicar? As alterações não publicadas serão perdidas.'))location.reload()}
+  else if(b.id==='add')linkForm(null);
+  else if(b.id==='prof')profForm();
+  else if(b.id==='pub')publish();
+  else if(a==='ed')linkForm(i);
+  else if(a==='rm'){if(confirm('Remover este botão?')){L.splice(i,1);touch()}}
+  else if(a==='up'&&i>0){[L[i-1],L[i]]=[L[i],L[i-1]];touch()}
+  else if(a==='dn'&&i<L.length-1){[L[i+1],L[i]]=[L[i],L[i+1]];touch()}
+});
+render();
+(async()=>{
+  try{
+    if(!window.claude||!window.claude.use)return;
+    const u=await window.claude.use('user');
+    owner=!!(u&&u.isOwner());
+    if(owner){render();bar()}
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
